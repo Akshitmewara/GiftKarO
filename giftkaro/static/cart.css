@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    background-color: #ff523b;
+}
+.cart-page{
+    margin: 80px auto;
+}
+
+a{
+    position: relative;
+    font-size: 30px;
+    color: #ed4646;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a:before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 6px;
+    width: 0;
+    background:#0d6efd;
+    border-radius: 50px;
+    transition: width 0.3s ease;
+  }
+  a:hover:before{
+    width: 90%;
+  }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: black;
+    background: #ff523b;
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 5px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+
+}
+
+td a {
+    color: #ff523b;
+    font-size: 12px;
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price>table{
+    border-top: 30px solid #ff523b;
+    width: 100%;
+    max-width: 350px;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+.total-price table td th:last-child{
+    text-align: right;
+    padding-left: 50px;
+}
+
+

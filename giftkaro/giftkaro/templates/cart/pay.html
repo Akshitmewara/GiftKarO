@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Bootstrap Card with Navbar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #FF523B;
+        }
+        .navbar-brand {
+            font-size: 24px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            height: 250px; 
+            
+        }
+        .card-img-top {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            object-fit: cover;
+            height: 250px;
+            width: 200px;
+            margin-right:50px;
+        }
+        .card-title {
+            color: #333;
+        }
+        .card-text {
+            color: #777;
+        }
+        h2{
+            font-family: 'Kaushan Script', cursive;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">
+                    <i class="fas fa-gift fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+        <a class="navbar-brand active ch" href="#">GiftKarO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <h2 class="text-center mb-4">Thank you</h2>
+        {% for cart in carts %}
+        <div class="col-md-6" pd-6>
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4 pd-5">
+                        <img src="{{cart.img.url}}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text">Name = {{cart.name}}</p>
+                            <p class="card-text">Price = INR{{cart.price}}</p>
+                            <p class="card-text">Description = {{cart.disc}}</p>
+                            <p class="card-text">Code = {{cart.code}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

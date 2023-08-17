@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Gift Karo</title>
+    <link rel="stylesheet" href="{% static 'giftstyle.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff523b;">
+    <div class="container">
+
+    </div>
+  </nav>
+  {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    <div class="container">
+        <div class="login-box">
+          <h2>Login</h2>
+          <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+          </form>
+          <footer class = "register"><p>Don't have an account,<a href="{% url 'registration' %}">Register here</a></p></footer>
+        </div>
+      </div>
+      <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('Please fill in all fields.');
+                event.preventDefault();
+            }
+        });
+    </script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> {% endcomment %}
+</body>
+</html>
+
+{% comment %} {% extends "base.html" %}
+
+{% block start %}
+
+<div class="container">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="#" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <footer class = "register"><p>Don't have an account,<a href="{% url 'giftregister.html' %}">Register here</a></p></footer>
+  </div>
+</div>
+
+{% endblock %} {% endcomment %}

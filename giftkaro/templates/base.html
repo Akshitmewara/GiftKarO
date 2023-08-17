@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ludomission | A powerful ludo betting online platform</title>
+    </title>
+    <!-- SEO Meta Tags-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="/media/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="/media/vendor/tiny-slider/dist/tiny-slider.css" />
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="/media/css/theme.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet"> <style>
+        .body {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        .nav-item,
+        .nav-link {
+            color: #fff !important;
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+<!-- Body-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/"> <b>Ludo Mission</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <hr class="hr-light d-lg-none mt-3 mb-2">
+
+            <form class="form-inline my-2 my-lg-0">
+                {% if not request.user.is_authenticated %}
+                <a class=" btn btn-info btn-sm" href="{% url 'login' %}">
+                    <i class="czi-user mr-1"></i> Login
+                </a>
+                <a class=" btn btn-success btn-sm ml-3" href="{% url 'register' %}">
+                    <i class="czi-user mr-1"></i> Register
+                </a>
+                {% endif  %}
+             
+            </form>
+        </div>
+    </div>
+
+</nav>
+
+{% block start %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+<!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+        class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i
+        class="btn-scroll-top-icon czi-arrow-up"> </i></a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="/media/vendor/jquery/dist/jquery.slim.min.js"></script>
+<script src="/media/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/media/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script src="/media/vendor/simplebar/dist/simplebar.min.js"></script>
+<script src="/media/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+<script src="/media/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<!-- Main theme script-->
+<script src="/media/js/theme.min.js"></script>
+</body>
+
+</html>

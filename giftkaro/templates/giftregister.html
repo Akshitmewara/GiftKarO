@@ -1,0 +1,124 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="{% static 'regstyle.css' %}">
+  {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
+</head>
+<body>
+  {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+  <div class="container01">
+    <div class="login-box01">
+      <h2>Register</h2>
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="form-group01">
+          <label for="username">Name:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group01">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group01">
+          <label for="password">Set Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group01">
+          <label for="date_of_birth">Date of Birth:</label>
+          <input type="date" id="date_of_birth" name="date_of_birth" required>
+        </div>
+        <div class="form-group01">
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <p class="register-link">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+  </div>
+  <script>
+    // Client-side validation for registration form
+    document.querySelector('form').addEventListener('submit', function (event) {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const date_of_birth = document.getElementById('date_of_birth').value;
+        const country = document.getElementById('country').value;
+
+        if (!username || !email || !password || !date_of_birth || !country) {
+            alert('Please fill in all fields.');
+            event.preventDefault();
+        }
+    });
+</script>
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> {% endcomment %}
+</body>
+</html> 
+
+{% comment %} {% extends "base.html" %}
+
+{% block start %}
+<div class="container01">
+  <div class="login-box01">
+    <h2>Register</h2>
+    <form action="#" method="POST">
+      {% csrf_token %}
+      <div class="form-group01">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group01">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group01">
+        <label for="password">Set Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group01">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+      <div class="form-group01">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <p class="register-link">Already have an account? <a href="{% url 'giftlogin.html' %}">Login here</a></p>
+  </div>
+</div>
+
+{% endblock %} {% endcomment %}
